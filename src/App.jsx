@@ -166,20 +166,30 @@ function App() {
           </Suspense>
 
         </div>
-        <div className='w-[1200px] p-10 mx-auto'>
+        <div className={`w-[1200px] p-10 mx-auto ${activeTab === "products" ? "hidden" : "block"}`}>
           <h2 className='text-lg font-black mb-4'>Your Cart</h2>
           <div className=''>
-            {cardArray.map((card) => <Card onRemove={handleRemove} card={card} />)}
+            {cardArray.length === 0 ?
+
+              <div className="flex flex-col items-center justify-center py-20 text-gray-400">
+                <span className="text-5xl mb-4">🛒</span>
+                <p className="text-lg font-medium">Your cart is empty</p>
+                <p className="text-sm mt-1">Go back to Products and add something!</p>
+              </div>
+
+              : cardArray.map((card) => <Card onRemove={handleRemove} card={card} />)}
           </div>
-          <div className='my-7 flex justify-between'>
-            <p className='text-[#627382] font-bold text-lg'>Total:</p>
-            <div className='flex items-baseline'>
-              <span className="text-lg font-bold text-gray-900">$</span>
-              <p className='font-black text-lg'>{total}</p>
+          <div className={cardArray.length === 0 ? "hidden" : "block"}>
+            <div className='my-7 flex justify-between'>
+              <p className='text-[#627382] font-bold text-lg'>Total:</p>
+              <div className='flex items-baseline'>
+                <span className="text-lg font-bold text-gray-900">$</span>
+                <p className='font-black text-lg'>{total}</p>
+              </div>
             </div>
-          </div>
-          <div className='w-[1150px] h-[55px] rounded-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] flex items-center justify-center'>
-            <p className='text-white font-bold'>Proceed To Checkout</p>
+            <div className='w-[1150px] h-[55px] rounded-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] flex items-center justify-center'>
+              <p className='text-white font-bold'>Proceed To Checkout</p>
+            </div>
           </div>
         </div>
       </div>

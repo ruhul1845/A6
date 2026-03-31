@@ -1,8 +1,11 @@
 const Card = ({ card, onRemove }) => {
+
+
+
     return (
         <div className="flex items-center justify-between bg-gray-50 my-3 rounded-2xl px-5 py-4">
 
-            {/* Left: Icon + Info */}
+
             <div className="flex items-center gap-7">
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-xl shadow-sm">
                     {card.icon}
@@ -13,7 +16,7 @@ const Card = ({ card, onRemove }) => {
                 </div>
             </div>
 
-            {/* Right: Remove Button */}
+
             <button
                 onClick={() => onRemove(card)}
                 className="text-pink-500 text-sm font-semibold hover:text-pink-700 cursor-pointer"
