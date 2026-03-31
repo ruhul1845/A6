@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "name": "AI Writing Pro",
+        "description": "Generate high-quality content, blogs, and marketing copy in seconds with advanced AI.",
+        "price": 29,
+        "period": "monthly",
+        "tag": "Best Seller",
+        "tagType": "best-seller",
+        "features": {
+            "feature1": "Unlimited AI generations",
+            "feature2": "50+ writing templates",
+            "feature3": "Grammar checker",
+            "feature4": "Plagiarism detector"
+        },
+        "icon": "✍️"
+    },
+    {
+        "id": 2,
+        "name": "SEO Booster Kit",
+        "description": "Dominate search rankings with AI-powered keyword research and on-page optimization tools.",
+        "price": 49,
+        "period": "monthly",
+        "tag": "Popular",
+        "tagType": "popular",
+        "features": {
+            "feature1": "Keyword research",
+            "feature2": "Competitor analysis",
+            "feature3": "Backlink tracker",
+            "feature4": "Rank monitoring"
+        },
+        "icon": "📈"
+    },
+    {
+        "id": 3,
+        "name": "Design Studio",
+        "description": "Create stunning visuals, social media graphics, and brand assets with drag-and-drop ease.",
+        "price": 19,
+        "period": "monthly",
+        "tag": "New",
+        "tagType": "new",
+        "features": {
+            "feature1": "500+ templates",
+            "feature2": "Brand kit",
+            "feature3": "1-click background remover",
+            "feature4": "Export in all formats"
+        },
+        "icon": "🎨"
+    },
+    {
+        "id": 4,
+        "name": "Video Editor Pro",
+        "description": "Edit professional-grade videos with AI auto-captions, transitions, and one-click enhancements.",
+        "price": 59,
+        "period": "monthly",
+        "tag": "Best Seller",
+        "tagType": "best-seller",
+        "features": {
+            "feature1": "4K export",
+            "feature2": "AI auto-captions",
+            "feature3": "100+ transitions",
+            "feature4": "Background music library"
+        },
+        "icon": "🎬"
+    },
+    {
+        "id": 5,
+        "name": "Resume Builder Elite",
+        "description": "Land your dream job with ATS-optimized resumes built and reviewed by AI recruiters.",
+        "price": 9,
+        "period": "one-time",
+        "tag": "Popular",
+        "tagType": "popular",
+        "features": {
+            "feature1": "100+ templates",
+            "feature2": "ATS optimization",
+            "feature3": "Export to PDF",
+            "feature4": "Cover letter generator"
+        },
+        "icon": "📄"
+    },
+    {
+        "id": 6,
+        "name": "Social Media Scheduler",
+        "description": "Plan, schedule, and auto-publish content across all major social platforms in one place.",
+        "price": 25,
+        "period": "monthly",
+        "tag": "New",
+        "tagType": "new",
+        "features": {
+            "feature1": "Multi-platform posting",
+            "feature2": "Analytics dashboard",
+            "feature3": "AI caption writer",
+            "feature4": "Best time suggestions"
+        },
+        "icon": "📱"
+    },
+    {
+        "id": 7,
+        "name": "Code Assistant AI",
+        "description": "Write, debug, and refactor code faster with an AI pair programmer supporting 30+ languages.",
+        "price": 199,
+        "period": "yearly",
+        "tag": "Best Seller",
+        "tagType": "best-seller",
+        "features": {
+            "feature1": "30+ languages",
+            "feature2": "Auto bug detection",
+            "feature3": "Code refactoring",
+            "feature4": "VS Code extension"
+        },
+        "icon": "💻"
+    },
+    {
+        "id": 8,
+        "name": "Email Marketing Suite",
+        "description": "Send personalized email campaigns at scale with smart segmentation and A/B testing.",
+        "price": 39,
+        "period": "monthly",
+        "tag": "Popular",
+        "tagType": "popular",
+        "features": {
+            "feature1": "Unlimited emails",
+            "feature2": "A/B testing",
+            "feature3": "Smart segmentation",
+            "feature4": "Drag-and-drop builder"
+        },
+        "icon": "📧"
+    },
+    {
+        "id": 9,
+        "name": "Finance Tracker Pro",
+        "description": "Manage budgets, track expenses, and forecast finances with real-time AI insights.",
+        "price": 99,
+        "period": "yearly",
+        "tag": "New",
+        "tagType": "new",
+        "features": {
+            "feature1": "Expense tracking",
+            "feature2": "Budget planner",
+            "feature3": "AI forecasting",
+            "feature4": "Multi-currency support"
+        },
+        "icon": "💰"
+    },
+    {
+        "id": 10,
+        "name": "Productivity Planner",
+        "description": "Organize tasks, goals, and projects with a smart AI assistant that keeps you on track.",
+        "price": 15,
+        "period": "monthly",
+        "tag": "Popular",
+        "tagType": "popular",
+        "features": {
+            "feature1": "Task prioritization",
+            "feature2": "Goal tracking",
+            "feature3": "Daily AI summary",
+            "feature4": "Team collaboration"
+        },
+        "icon": "🗂️"
+    }
+]

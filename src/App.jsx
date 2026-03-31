@@ -1,16 +1,28 @@
 
-import { Play, ShoppingCart } from 'lucide-react'
+import { LoaderCircle, Play, ShoppingCart } from 'lucide-react'
 import playimg from './assets/Play.png'
 import circle from './assets/circle.png'
 import banner from './assets/banner.png'
 import './App.css'
+import Toolcard from './Toolcard'
+import { Suspense } from 'react'
+import UserCard from './UserCard'
+import Pricing from './Pricing'
+
+const jsonpromise = fetch("/tools.json").then(res => res.json());
+console.log(jsonpromise);
+
+const pricingPromise = fetch("/pricing.json").then(res => res.json());
 
 function App() {
+  const activeStyle = 'rounded-full bg-gradient-to-r from-[#4F39F6] to-[#9514FA] px-6 py-2 text-white font-bold'
+  const inactiveStyle = 'text-gray-700 font-medium px-6 py-2'
+
 
 
   return (
     <>
-      <div className='border-b border-[#F2F2F2] w-full h-[92px] '>
+      <div className=' sticky top-0 z-10 bg-white shadow-md border-b border-[#F2F2F2] w-full h-[92px] '>
         <div className='flex justify-between   mx-50'>
           <div>
             <h1 className="bg-linear-to-r from-[#4F39F6] to-[#9514FA] bg-clip-text text-transparent text-4xl font-bold py-6  ">
@@ -18,7 +30,7 @@ function App() {
             </h1>
           </div>
           <div>
-            <ul class="flex items-center gap-8 py-8">
+            <ul className="flex items-center gap-8 py-8">
               <li>Products</li>
               <li>Features</li>
               <li>Pricing</li>
@@ -36,7 +48,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className='w-[1600px] h-[760px] flex gap-18 mx-50 mt-12 items-center'>
+      <div className='w-[1600px] h-[760px] grid grid-cols-1 md: grid-cols-2 gap-18 mx-50 mt-12 items-center'>
         <div className='w-[640px] h-[406px]'>
 
           <div className='w-[294px] h-[38px]  rounded-full bg-[#E1E7FF] flex items-center justify-center gap-2'>
@@ -69,6 +81,69 @@ function App() {
 
           <img src={banner} alt="" />
         </div>
+      </div>
+      <div className=' h-[247px] bg-linear-to-r from-[#4F39F6] to-[#9514FA]'></div>
+      <div className='mx-50 '>
+        <div className='h-[196px]  flex flex-col justify-center items-center gap-4 mt-25 mb-10'>
+          <div className='flex flex-col justify-center items-center text-center'>
+            <p className='text-4xl font-black mb-2'>Premium Digital Tools</p>
+            <p className='text-[#627382] leading-6 max-w-[500px]'>
+              Choose from our curated collection of premium digital products
+              designed to boost your productivity and creativity.
+            </p>
+          </div>
+          <div className='flex items-center gap-4'>
+            <button className={activeStyle}  >
+
+              Products
+            </button>
+
+            <button className={inactiveStyle}   >
+
+              Cart (2)
+            </button>
+          </div>
+        </div>
+        <div className=''>
+          <Suspense fallback={<LoaderCircle />}>
+            <Toolcard jsonpromise={jsonpromise} />
+          </Suspense>
+
+        </div>
+      </div>
+
+      <div className='w-full h-[700px]  bg-[#F9FAFC] mt-28 mx-auto py-30 px-40'>
+        <div className='flex flex-col items-center justify-center'>
+          <h2 className='text-3xl font-black'>Get Started In 3 Steps</h2>
+          <p className='text-[#627382] mt-7'>Start using premium digital tools in minutes, not hours.</p>
+        </div>
+        <div className='mt-20'>
+          <UserCard />
+        </div>
+
+      </div>
+      <div className='w-full h-[830px]  mx-auto py-30'>
+        <div className='flex flex-col items-center justify-center'>
+          <h2 className='text-3xl font-black'>Simple, Transparent Pricing</h2>
+          <p className='text-[#627382] mt-7'>Choose the plan that fits your needs. Upgrade or downgrade anytime.</p>
+        </div>
+        <div className='mt-12'>
+          <Pricing pricingPromise={pricingPromise} />
+        </div>
+      </div>
+      <div className='w-full h-[487px] bg-linear-to-r from-[#4F39F6] to-[#9514FA] flex flex-col items-center justify-center text-center gap-6'>
+        <h2 className='text-4xl font-bold text-white'>Ready To Transform Your Workflow?</h2>
+        <p className='text-white/80 text-center leading-6 max-w-[500px]'>Join thousands of professionals who are already using Digitools to work smarter. Start your free trial today.</p>
+        <div className='flex mt-6 gap-4'>
+          <button className='w-[165px] h-[52px] rounded-full bg-white items-center '>
+            <p className='font-bold bg-linear-to-r from-[#4F39F6] to-[#9514FA] bg-clip-text text-transparent'>Explore Products</p>
+          </button>
+          <button className='w-[165px] h-[52px] rounded-full border border-white items-center justify-center flex gap-2 '>
+
+            <p className=' font-bold text-white items-center'>View Pricing </p>
+          </button>
+        </div>
+        <p className='text-white/80'> 14-day free trial • No credit card required • Cancel anytime</p>
       </div>
     </>
   )
