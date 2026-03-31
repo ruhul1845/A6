@@ -8,6 +8,9 @@ import Toolcard from './Toolcard'
 import { Suspense } from 'react'
 import UserCard from './UserCard'
 import Pricing from './Pricing'
+import fb from './assets/Facebook.png'
+import x from './assets/Twitter.png'
+import insta from './assets/Instagram.png'
 
 const jsonpromise = fetch("/tools.json").then(res => res.json());
 console.log(jsonpromise);
@@ -144,6 +147,57 @@ function App() {
           </button>
         </div>
         <p className='text-white/80'> 14-day free trial • No credit card required • Cancel anytime</p>
+      </div>
+      <div className='w-full h-[472px] pt-30 px-40  gap-4 bg-[#101727]'>
+        <div className='flex flex-row justify-between'>
+          <div className='flex flex-col gap-3'>
+            <h2 className='text-4xl text-white font-bold'>DigiTools</h2>
+            <p className='text-white/70 hover:text-white leading-6 max-w-[350px]'>Premium digital tools for creators, professionals, and businesses. Work smarter with our suite of powerful tools.
+            </p>
+          </div>
+          <div className="flex flex-col gap-4">
+            <h3 className="text-white font-bold text-lg">Product</h3>
+            <a className="text-white/60 hover:text-white text-base">Features</a>
+            <a className="text-white/60 hover:text-white text-base">Pricing</a>
+            <a className="text-white/60 hover:text-white text-base">Templates</a>
+            <a className="text-white/60 hover:text-white text-base">Integrations</a>
+          </div>
+          <div className="flex flex-col gap-4">
+            <h3 className="text-white font-bold text-lg">Company</h3>
+            <a className="text-white/60 hover:text-white text-base">About</a>
+            <a className="text-white/60 hover:text-white text-base">Blog</a>
+            <a className="text-white/60 hover:text-white text-base">Careers</a>
+            <a className="text-white/60 hover:text-white text-base">Press</a>
+          </div>
+          <div className="flex flex-col gap-4">
+            <h3 className="text-white font-bold text-lg">Resources</h3>
+            <a className="text-white/60 hover:text-white text-base">Documentation</a>
+            <a className="text-white/60 hover:text-white text-base">Help Center</a>
+            <a className="text-white/60 hover:text-white text-base">Community</a>
+            <a className="text-white/60 hover:text-white text-base">Contact</a>
+          </div>
+          <div className='flex flex-col gap-4'>
+            <h3 className='text-white font-bold text-lg'>Social Links</h3>
+            <div className='flex gap-3'>
+              <img src={insta} alt="Instagram" />
+              <img src={fb} alt="facebook" />
+              <img src={x} alt="X" />
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-between mt-20 px-8 py-4 border-t border-white/20">
+
+
+          <p className="text-white/40 text-base">© 2026 Digitools. All rights reserved.</p>
+
+
+          <div className="flex gap-6">
+            <a className="text-white/40 hover:text-white text-base cursor-pointer">Privacy Policy</a>
+            <a className="text-white/40 hover:text-white text-base cursor-pointer">Terms of Service</a>
+            <a className="text-white/40 hover:text-white text-base cursor-pointer">Cookies</a>
+          </div>
+
+        </div>
       </div>
     </>
   )
