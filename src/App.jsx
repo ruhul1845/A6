@@ -85,7 +85,31 @@ function App() {
           <img src={banner} alt="" />
         </div>
       </div>
-      <div className=' h-[247px] bg-linear-to-r from-[#4F39F6] to-[#9514FA]'></div>
+      <div className=' h-[247px] bg-linear-to-r from-[#4F39F6] to-[#9514FA] px-40 py-15'>
+
+        <div class="flex items-center justify-center gap-50 py-7">
+
+          <div>
+            <p class="text-6xl font-bold text-white mb-6">50K+</p>
+            <p class="text-xl text-white/90">Active Users</p>
+          </div>
+
+          <div class="w-px h-14 bg-gray-300"></div>
+
+          <div class="text-center">
+            <p class="text-6xl font-bold text-white mb-6">200+</p>
+            <p class="text-xl text-white/90">Premium Tools</p>
+          </div>
+
+          <div class="w-px h-14 bg-gray-300"></div>
+
+          <div class="text-right">
+            <p class="text-6xl font-bold text-white mb-6">4.9</p>
+            <p class="text-xl text-white/90">Rating</p>
+          </div>
+
+        </div>
+      </div>
       <div className='mx-50 '>
         <div className='h-[196px]  flex flex-col justify-center items-center gap-4 mt-25 mb-10'>
           <div className='flex flex-col justify-center items-center text-center'>
