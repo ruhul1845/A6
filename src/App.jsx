@@ -37,13 +37,13 @@ function App() {
     if (!alreadyAdded) {
       setCardArray((prev) => [...prev, product]);
       setTotal((prev) => prev + product.price);
-      toast.success("Added to cart");
+      toast.success(`${product.name} Added to cart`);
     }
   };
 
   const handleRemove = (product) => {
     setCardArray((prev) => prev.filter((item) => item.id !== product.id));
-    toast.error("Removed from cart ");
+    toast.error(`${product.name} Removed from cart `);
     setTotal((prev) => {
       const newTotal = prev - product.price;
       return newTotal < 0 ? 0 : newTotal;
@@ -86,7 +86,7 @@ function App() {
 
           <div className="flex gap-4 items-center">
             <div className="relative cursor-pointer">
-              <ShoppingCart onClick={() => setActiveTab('card')} />
+              <ShoppingCart className='transition-colors cursor-pointer ' onClick={() => setActiveTab('card')} />
               {cardArray.length > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
                   {cardArray.length}
@@ -169,12 +169,12 @@ function App() {
             </p>
           </div>
           <div className='flex items-center w-[248px] h-[58px] border border-[#F6F6F6] rounded-full gap-4'>
-            <button onClick={() => setActiveTab('products')} className={activeTab === "products" ? activeStyle : inactiveStyle}  >
+            <button onClick={() => setActiveTab('products')} className={`${activeTab === "products" ? activeStyle : inactiveStyle} transition-colors cursor-pointer`}>
 
               Products
             </button>
 
-            <button onClick={() => setActiveTab('card')} className={activeTab === "card" ? activeStyle : inactiveStyle}   >
+            <button onClick={() => setActiveTab('card')} className={`${activeTab === "card" ? activeStyle : inactiveStyle} transition-colors cursor-pointer`}   >
 
               Cart({(cardArray.length)})
             </button>
@@ -208,7 +208,7 @@ function App() {
               </div>
             </div>
             <div className='w-[1150px] h-[55px] rounded-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] flex items-center justify-center'>
-              <p onClick={handleDrop} className='text-white font-bold'>Proceed To Checkout</p>
+              <p onClick={handleDrop} className='text-white font-bold transition-colors cursor-pointer '>Proceed To Checkout</p>
             </div>
           </div>
         </div>
