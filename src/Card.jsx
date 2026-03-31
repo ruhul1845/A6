@@ -18,7 +18,10 @@ const Card = ({ card, onRemove }) => {
 
 
             <button
-                onClick={() => onRemove(card)}
+                onClick={() => {
+                    onRemove(card)
+
+                }}
                 className="text-pink-500 text-sm font-semibold hover:text-pink-700 cursor-pointer"
             >
                 Remove

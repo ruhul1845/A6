@@ -14,6 +14,8 @@ import insta from './assets/Instagram.png'
 import { useState } from 'react'
 import Card from './Card'
 import { DollarSign } from 'lucide-react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const jsonpromise = fetch("/tools.json").then(res => res.json());
 console.log(jsonpromise);
@@ -28,25 +30,43 @@ function App() {
   const [activeTab, setActiveTab] = useState('products');
   const [total, setTotal] = useState(0);
 
+
   const handleAddToCart = (product) => {
     // Prevent duplicates
     const alreadyAdded = cardArray.find((item) => item.id === product.id);
     if (!alreadyAdded) {
       setCardArray((prev) => [...prev, product]);
       setTotal((prev) => prev + product.price);
+      toast.success("Added to cart");
     }
   };
 
   const handleRemove = (product) => {
     setCardArray((prev) => prev.filter((item) => item.id !== product.id));
+    toast.error("Removed from cart ");
     setTotal((prev) => {
       const newTotal = prev - product.price;
       return newTotal < 0 ? 0 : newTotal;
     });
   };
+  const handleDrop = () => {
+
+    setCardArray([]);
+    setTotal(0);
+    toast.success("Proceeding to checkout ");
+  }
+
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        theme="colored"
+      />
       <div className=' sticky top-0 z-10 bg-white shadow-md border-b border-[#F2F2F2] w-full h-[92px] '>
         <div className='flex justify-between   mx-50'>
           <div>
@@ -66,7 +86,7 @@ function App() {
 
           <div className="flex gap-4 items-center">
             <div className="relative cursor-pointer">
-              <ShoppingCart />
+              <ShoppingCart onClick={() => setActiveTab('card')} />
               {cardArray.length > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
                   {cardArray.length}
@@ -162,7 +182,7 @@ function App() {
         </div>
         <div className={activeTab === "card" ? "hidden" : "block"}>
           <Suspense fallback={<LoaderCircle />}>
-            <Toolcard onAddToCart={handleAddToCart} jsonpromise={jsonpromise} />
+            <Toolcard cardArray={cardArray} onAddToCart={handleAddToCart} jsonpromise={jsonpromise} />
           </Suspense>
 
         </div>
@@ -188,7 +208,7 @@ function App() {
               </div>
             </div>
             <div className='w-[1150px] h-[55px] rounded-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] flex items-center justify-center'>
-              <p className='text-white font-bold'>Proceed To Checkout</p>
+              <p onClick={handleDrop} className='text-white font-bold'>Proceed To Checkout</p>
             </div>
           </div>
         </div>
@@ -282,4 +302,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

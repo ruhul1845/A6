@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Singlecard = ({ single, onAddToCart }) => {
+const Singlecard = ({ cardArray, single, onAddToCart }) => {
+    const isAdded = cardArray.some(item => item.id === single.id);
+
     return (
         <div className="relative bg-white rounded-2xl p-7 w-95 shadow-lg justify-center">
 
@@ -40,8 +42,16 @@ const Singlecard = ({ single, onAddToCart }) => {
             </ul>
 
             {/* Button */}
-            <button onClick={() => onAddToCart(single)} className="w-full py-3 rounded-full bg-violet-600 hover:bg-violet-700 text-white font-semibold text-sm transition-colors cursor-pointer">
-                Buy Now
+            <button
+                onClick={() => {
+                    if (!isAdded) onAddToCart(single);
+                }}
+                className={`w-full py-3 rounded-full text-white font-semibold text-sm transition-colors cursor-pointer 
+    ${isAdded ? "bg-gray-400 cursor-not-allowed" : "bg-violet-600 hover:bg-violet-700"}
+  `}
+                disabled={isAdded}
+            >
+                {isAdded ? "Added to Cart" : "Buy Now"}
             </button>
 
         </div>
