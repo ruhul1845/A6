@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Singlecard = ({ single }) => {
+const Singlecard = ({ single, onAddToCart }) => {
     return (
         <div className="relative bg-white rounded-2xl p-7 w-95 shadow-lg justify-center">
 
@@ -40,7 +40,7 @@ const Singlecard = ({ single }) => {
             </ul>
 
             {/* Button */}
-            <button className="w-full py-3 rounded-full bg-violet-600 hover:bg-violet-700 text-white font-semibold text-sm transition-colors cursor-pointer">
+            <button onClick={() => onAddToCart(single)} className="w-full py-3 rounded-full bg-violet-600 hover:bg-violet-700 text-white font-semibold text-sm transition-colors cursor-pointer">
                 Buy Now
             </button>
 

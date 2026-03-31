@@ -11,6 +11,9 @@ import Pricing from './Pricing'
 import fb from './assets/Facebook.png'
 import x from './assets/Twitter.png'
 import insta from './assets/Instagram.png'
+import { useState } from 'react'
+import Card from './Card'
+import { DollarSign } from 'lucide-react'
 
 const jsonpromise = fetch("/tools.json").then(res => res.json());
 console.log(jsonpromise);
@@ -21,7 +24,26 @@ function App() {
   const activeStyle = 'rounded-full bg-gradient-to-r from-[#4F39F6] to-[#9514FA] px-6 py-2 text-white font-bold'
   const inactiveStyle = 'text-gray-700 font-medium px-6 py-2'
 
+  const [cardArray, setCardArray] = useState([]);
+  const [activeTab, setActiveTab] = useState('products');
+  const [total, setTotal] = useState(0);
 
+  const handleAddToCart = (product) => {
+    // Prevent duplicates
+    const alreadyAdded = cardArray.find((item) => item.id === product.id);
+    if (!alreadyAdded) {
+      setCardArray((prev) => [...prev, product]);
+      setTotal((prev) => prev + product.price);
+    }
+  };
+
+  const handleRemove = (product) => {
+    setCardArray((prev) => prev.filter((item) => item.id !== product.id));
+    setTotal((prev) => {
+      const newTotal = prev - product.price;
+      return newTotal < 0 ? 0 : newTotal;
+    });
+  };
 
   return (
     <>
@@ -43,7 +65,14 @@ function App() {
           </div>
 
           <div className="flex gap-4 items-center">
-            <ShoppingCart />
+            <div className="relative cursor-pointer">
+              <ShoppingCart />
+              {cardArray.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                  {cardArray.length}
+                </span>
+              )}
+            </div>
             <p >Login</p>
             <button className='w-[122px] h-[44px] rounded-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] items-center '>
               <p className='text-white'>Get Started</p>
@@ -119,23 +148,39 @@ function App() {
               designed to boost your productivity and creativity.
             </p>
           </div>
-          <div className='flex items-center gap-4'>
-            <button className={activeStyle}  >
+          <div className='flex items-center w-[248px] h-[58px] border border-[#F6F6F6] rounded-full gap-4'>
+            <button onClick={() => setActiveTab('products')} className={activeTab === "products" ? activeStyle : inactiveStyle}  >
 
               Products
             </button>
 
-            <button className={inactiveStyle}   >
+            <button onClick={() => setActiveTab('card')} className={activeTab === "card" ? activeStyle : inactiveStyle}   >
 
-              Cart (2)
+              Cart({(cardArray.length)})
             </button>
           </div>
         </div>
-        <div className=''>
+        <div className={activeTab === "card" ? "hidden" : "block"}>
           <Suspense fallback={<LoaderCircle />}>
-            <Toolcard jsonpromise={jsonpromise} />
+            <Toolcard onAddToCart={handleAddToCart} jsonpromise={jsonpromise} />
           </Suspense>
 
+        </div>
+        <div className='w-[1200px] p-10 mx-auto'>
+          <h2 className='text-lg font-black mb-4'>Your Cart</h2>
+          <div className=''>
+            {cardArray.map((card) => <Card onRemove={handleRemove} card={card} />)}
+          </div>
+          <div className='my-7 flex justify-between'>
+            <p className='text-[#627382] font-bold text-lg'>Total:</p>
+            <div className='flex items-baseline'>
+              <span className="text-lg font-bold text-gray-900">$</span>
+              <p className='font-black text-lg'>{total}</p>
+            </div>
+          </div>
+          <div className='w-[1150px] h-[55px] rounded-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] flex items-center justify-center'>
+            <p className='text-white font-bold'>Proceed To Checkout</p>
+          </div>
         </div>
       </div>
 
