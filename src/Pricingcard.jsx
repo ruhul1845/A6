@@ -2,7 +2,7 @@ import React from 'react';
 
 const Pricingcard = ({ data }) => {
     return (
-        <div className={`relative flex flex-col w-100  p-8 rounded-2xl  ${data.popular ? 'bg-violet-600 text-white' : 'bg-gray-100 text-gray-900'}`}>
+        <div className={`relative flex flex-col w-96  p-8 rounded-2xl my-3  ${data.popular ? 'bg-violet-600 text-white' : 'bg-gray-100 text-gray-900'}`}>
 
             {/* Most Popular Badge */}
             {data.tag && (

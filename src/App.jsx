@@ -100,10 +100,11 @@ function App() {
           </div>
         </div>
       </div>
-      <div className='w-[1600px] h-[760px] grid grid-cols-1 md: grid-cols-2 gap-18 mx-50 mt-12 items-center'>
-        <div className='w-[640px] h-[406px]'>
 
-          <div className='w-[294px] h-[38px]  rounded-full bg-[#E1E7FF] flex items-center justify-center gap-2'>
+      <div className='max-w-[1600px] flex flex-col-reverse md:flex-row gap-16 mx-auto my-24 items-center'>
+        <div className='w-[640px] '>
+
+          <div className='w-[294px]   rounded-full bg-[#E1E7FF] flex items-center justify-center gap-2'>
             <img src={circle} alt="" />
             <p className='bg-linear-to-r from-[#4F39F6] to-[#9514FA] bg-clip-text text-transparent font-bold'>New: Ai-Powered Tools Available</p>
           </div>
@@ -119,7 +120,7 @@ function App() {
               Explore Products
             </p>
           </div>
-          <div className='flex gap-4'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
             <button className='w-[165px] h-[52px] rounded-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] items-center '>
               <p className='text-white font-bold'>Explore Products</p>
             </button>
@@ -129,14 +130,14 @@ function App() {
             </button>
           </div>
         </div>
-        <div className='w-[600px] h-[690px]'>
+        <div className='w-[600px] '>
 
           <img src={banner} alt="" />
         </div>
       </div>
-      <div className=' h-[247px] bg-linear-to-r from-[#4F39F6] to-[#9514FA] px-40 py-15'>
+      <div className='w-full bg-linear-to-r from-[#4F39F6] to-[#9514FA] px-40 py-15'>
 
-        <div class="flex items-center justify-center gap-50 py-7">
+        <div class=" flex items-center  justify-between gap-2 py-7">
 
           <div>
             <p class="text-6xl font-bold text-white mb-6">50K+</p>
@@ -180,7 +181,7 @@ function App() {
             </button>
           </div>
         </div>
-        <div className={activeTab === "card" ? "hidden" : "block"}>
+        <div className={`${activeTab === "card" ? "hidden" : "block"} my-3`}>
           <Suspense fallback={<LoaderCircle />}>
             <Toolcard cardArray={cardArray} onAddToCart={handleAddToCart} jsonpromise={jsonpromise} />
           </Suspense>
@@ -214,7 +215,7 @@ function App() {
         </div>
       </div>
 
-      <div className='w-full h-[700px]  bg-[#F9FAFC] mt-28 mx-auto py-30 px-40'>
+      <div className='w-full   bg-[#F9FAFC] mt-28 mx-auto py-30 px-40'>
         <div className='flex flex-col items-center justify-center'>
           <h2 className='text-3xl font-black'>Get Started In 3 Steps</h2>
           <p className='text-[#627382] mt-7'>Start using premium digital tools in minutes, not hours.</p>
@@ -224,7 +225,7 @@ function App() {
         </div>
 
       </div>
-      <div className='w-full h-[830px]  mx-auto py-30'>
+      <div className='w-full   mx-auto py-30'>
         <div className='flex flex-col items-center justify-center'>
           <h2 className='text-3xl font-black'>Simple, Transparent Pricing</h2>
           <p className='text-[#627382] mt-7'>Choose the plan that fits your needs. Upgrade or downgrade anytime.</p>
@@ -247,10 +248,10 @@ function App() {
         </div>
         <p className='text-white/80'> 14-day free trial • No credit card required • Cancel anytime</p>
       </div>
-      <div className='w-full h-[472px] pt-30 px-40  gap-4 bg-[#101727]'>
-        <div className='flex flex-row justify-between'>
+      <div className='w-full  pt-30 px-40  gap-4 bg-[#101727]'>
+        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 space-y-3 space-x-10 justify-between'>
           <div className='flex flex-col gap-3'>
-            <h2 className='text-4xl text-white font-bold'>DigiTools</h2>
+            <h2 className='text-2xl md:text-3xl lg:text-3xl text-white font-bold'>DigiTools</h2>
             <p className='text-white/70 hover:text-white leading-6 max-w-[350px]'>Premium digital tools for creators, professionals, and businesses. Work smarter with our suite of powerful tools.
             </p>
           </div>

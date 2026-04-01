@@ -5,10 +5,10 @@ import pack from './assets/package.png'
 
 const UserCard = () => {
     return (
-        <div className="flex gap-4 p-10  rounded-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-10  rounded-xl">
 
 
-            <div className="relative w-[250px] h-[300px] flex-1 flex flex-col items-center text-center p-6 border border-gray-200 rounded-xl shadow-lg">
+            <div className="relative  flex-1 flex flex-col items-center text-center p-6 border border-gray-200 rounded-xl shadow-lg">
                 <span className="absolute top-4 right-4 bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white text-xs font-bold w-10 h-10 rounded-full flex items-center justify-center">
                     01
                 </span>
@@ -21,7 +21,7 @@ const UserCard = () => {
                 </p>
             </div>
 
-            <div className="relative w-[250px] h-[300px] shadow-lg flex-1  flex flex-col items-center text-center p-6 border border-gray-200 rounded-xl">
+            <div className="relative  shadow-lg flex-1  flex flex-col items-center text-center p-6 border border-gray-200 rounded-xl">
                 <span className="absolute top-4 right-4 bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white text-xs font-bold w-10 h-10 rounded-full flex items-center justify-center">
                     02
                 </span>
@@ -35,7 +35,7 @@ const UserCard = () => {
             </div>
 
 
-            <div className="relative w-[250px] h-[300px] shadow-lg flex-1 flex flex-col items-center text-center p-6 border border-gray-200 rounded-xl">
+            <div className="relative  shadow-lg flex-1 flex flex-col items-center text-center p-6 border border-gray-200 rounded-xl">
                 <span className="absolute top-4 right-4 bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white text-xs font-bold w-10 h-10 rounded-full flex items-center justify-center">
                     03
                 </span>

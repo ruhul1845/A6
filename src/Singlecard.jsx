@@ -4,7 +4,7 @@ const Singlecard = ({ cardArray, single, onAddToCart }) => {
     const isAdded = cardArray.some(item => item.id === single.id);
 
     return (
-        <div className="relative bg-white rounded-2xl p-7 w-95 shadow-lg justify-center">
+        <div className="relative bg-white rounded-2xl p-7 min-w-fit shadow-lg justify-center">
 
 
             {single.tag && (
