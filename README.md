@@ -82,15 +82,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
-## 📸 Screenshots
 
-> *Add screenshots here by dragging images into this section on GitHub*
-
-| Mobile | Tablet | Desktop |
-|--------|--------|---------|
-| ![mobile]() | ![tablet]() | ![desktop]() |
-
----
 
 ## 📄 License
 
