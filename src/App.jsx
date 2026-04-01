@@ -101,7 +101,7 @@ function App() {
         </div>
       </div>
 
-      <div className='max-w-[1600px] flex flex-col-reverse md:flex-row gap-16 mx-auto my-24 items-center'>
+      <div className=' flex flex-col-reverse md:flex-row gap-16 justify-center  my-24 items-center'>
         <div className='w-[640px] '>
 
           <div className='w-[294px]   rounded-full bg-[#E1E7FF] flex items-center justify-center gap-2'>
